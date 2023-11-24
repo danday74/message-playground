@@ -23,15 +23,18 @@ export class AppComponent extends DestroyerComponent implements OnInit {
       this.messages = [...this.messages, message]
     })
 
-    this.messageService.messageReplay$
-      .pipe(
-        takeUntil(this.unsubscribe$), // assumes component extends DestroyerComponent
-        filter((message: IMessage) => message.name === 'myMessage1'),
-        distinctUntilChanged(isEqual) // WORKAROUND
-      )
-      .subscribe((message: IMessage) => {
-        console.log('XXX', message.name)
-      })
+    // this.messageService.messageReplay$
+    //   .pipe(
+    //     takeUntil(this.unsubscribe$), // assumes component extends DestroyerComponent
+    //     filter((message: IMessage) => message.name === 'myMessage1'),
+    //     distinctUntilChanged(isEqual) // WORKAROUND
+    //   )
+    //   .subscribe((message: IMessage) => {
+    //     console.log('XXX', message.name)
+    //   })
+    //
+    // this.messageService.sendReplay('myMessage1', this.constructor.name, 1)
+    // this.messageService.sendReplay('myMessage2', this.constructor.name, 2)
   }
 
   bob1(): void {
