@@ -27,6 +27,7 @@ export class AppComponent extends DestroyerComponent implements OnInit {
     //   .pipe(
     //     takeUntil(this.unsubscribe$), // assumes component extends DestroyerComponent
     //     filter((message: IMessage) => message.name === 'myMessage1'),
+    //     // distinctUntilChanged prob only works if only one message name is allowed, which may often not be the case
     //     distinctUntilChanged(isEqual) // WORKAROUND
     //   )
     //   .subscribe((message: IMessage) => {
